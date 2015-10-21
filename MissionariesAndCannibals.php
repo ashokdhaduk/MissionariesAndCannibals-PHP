@@ -59,7 +59,7 @@ class MissionariesAndCannibals
      *
      * @param $node
      */
-    protected function displayNodeInfo($node)
+    protected function displayNodeInfo(Node $node)
     {
         $nodeInfo = 'Initial State: ';
         if ($node->action) {

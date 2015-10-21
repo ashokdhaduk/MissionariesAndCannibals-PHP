@@ -20,13 +20,13 @@ class Node
     /**
      * @constructor
      *
-     * @param object $state    Current state
-     * @param object $parent   Parent state
-     * @param object $action   Action performed to change state from $parent to $state
-     * @param int    $pathCost Cost of path, not used in current implementation
-     * @param int    $depth    Depth of a tree, not used in current implementation
+     * @param State $state Current state
+     * @param State|null $parent Parent state
+     * @param Action|null $action Action performed to change state from $parent to $state
+     * @param int $pathCost Cost of path, not used in current implementation
+     * @param int $depth Depth of a tree, not used in current implementation
      */
-    public function __construct($state, $parent, $action, $pathCost = 0, $depth = 0)
+    public function __construct(State $state, State $parent = null, Action $action = null, $pathCost = 0, $depth = 0)
     {
         $this->state = $state;
         $this->parent = $parent;
