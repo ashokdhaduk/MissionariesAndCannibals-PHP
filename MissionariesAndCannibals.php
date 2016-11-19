@@ -15,7 +15,7 @@ class MissionariesAndCannibals
     public function solve()
     {
         $initialState = new State(3, 3, 0, 0, 'left');
-        $initialNode = new Node($initialState, null, null);
+        $initialNode  = new Node($initialState, null, null);
 
         if ($initialNode->state->isGoalState()) {
             $this->displayNodeInfo($initialNode);
@@ -35,19 +35,22 @@ class MissionariesAndCannibals
             $node = $queue->pop();
 
             $this->displayNodeInfo($node);
+
             array_push($explored, $node->state);
+
             if ($node->state->isGoalState()) {
                 return true;
             }
 
             //get all action and states available
             $states = $node->state->getNextStates();
+
             foreach ($states as $stateNode) {
-                if (!$stateNode->state->isValidState()) {
+                if ( ! $stateNode->state->isValidState()) {
                     continue;
                 }
 
-                if (!in_array($stateNode->state, $explored)) {
+                if ( ! in_array($stateNode->state, $explored)) {
                     $queue->push($stateNode);
                 }
             }
@@ -63,10 +66,11 @@ class MissionariesAndCannibals
     {
         $nodeInfo = 'Initial State: ';
         if ($node->action) {
-            $nodeInfo = $node->action.', '.$node->state->getBoatLocation();
+            $nodeInfo = $node->action . ', ' . $node->state->getBoatLocation();
         }
 
-        $nodeInfo .= ' <em>('.$node->state.')</em><br/>';
+        $nodeInfo .= ' <em>(' . $node->state . ')</em><br/>';
+
         echo $nodeInfo;
     }
 }
