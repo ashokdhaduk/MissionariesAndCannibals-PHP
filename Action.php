@@ -14,7 +14,7 @@ class Action
     public function __construct($numMissionaries, $numCannibals)
     {
         $this->numMissionaries = $numMissionaries;
-        $this->numCannibals = $numCannibals;
+        $this->numCannibals    = $numCannibals;
     }
 
     /**
@@ -42,6 +42,6 @@ class Action
      */
     public function __toString()
     {
-        return 'transfer '.$this->numMissionaries.' missionaries and '.$this->numCannibals.' cannibals';
+        return 'transfer ' . $this->numMissionaries . ' missionaries and ' . $this->numCannibals . ' cannibals';
     }
 }

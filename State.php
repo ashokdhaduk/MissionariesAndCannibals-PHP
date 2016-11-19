@@ -19,11 +19,11 @@ class State
      */
     public function __construct($leftMissionaries, $leftCannibals, $rightMissionaries, $rightCannibals, $boatLocation)
     {
-        $this->missionariesLeft = $leftMissionaries;
-        $this->cannibalsLeft = $leftCannibals;
+        $this->missionariesLeft  = $leftMissionaries;
+        $this->cannibalsLeft     = $leftCannibals;
         $this->missionariesRight = $rightMissionaries;
-        $this->cannibalsRight = $rightCannibals;
-        $this->boatLocation = $boatLocation;
+        $this->cannibalsRight    = $rightCannibals;
+        $this->boatLocation      = $boatLocation;
     }
 
     /**
@@ -72,7 +72,7 @@ class State
         }
 
         $maxMissionaries = min(BOAT_SIZE, $maxMissionaries);
-        $maxCannibals = min(BOAT_SIZE, $maxCannibals);
+        $maxCannibals    = min(BOAT_SIZE, $maxCannibals);
 
         $states = [];
         for ($missionaries = 0; $missionaries <= $maxMissionaries; ++$missionaries) {
@@ -89,7 +89,7 @@ class State
                 if ($action->isValidAction()) {
                     $state = clone $this;
                     $state = $state->transfer($missionaries, $cannibals);
-                    $node = new Node($state, $this, $action, 0, 0);
+                    $node  = new Node($state, $this, $action, 0, 0);
                     array_push($states, $node);
                 }
             }
@@ -102,7 +102,7 @@ class State
      * Transfer specified missionaries and cannibals.
      *
      * @param $numMissionaries Missionaries to transfer
-     * @param $numCannibals Cannibals to transfer
+     * @param $numCannibals    Cannibals to transfer
      *
      * @return State New state after transfer
      */
@@ -149,12 +149,12 @@ class State
      */
     public function __toString()
     {
-        $str = 'Left: '.$this->missionariesLeft.' missionaries, '.$this->cannibalsLeft.' cannibals';
+        $str = 'Left: ' . $this->missionariesLeft . ' missionaries, ' . $this->cannibalsLeft . ' cannibals';
         if ($this->boatLocation == 'left') {
             $str .= ', boat';
         }
 
-        $str .= ' - Right: '.$this->missionariesRight.' missionaries, '.$this->cannibalsRight.' cannibals';
+        $str .= ' - Right: ' . $this->missionariesRight . ' missionaries, ' . $this->cannibalsRight . ' cannibals';
         if ($this->boatLocation == 'right') {
             $str .= ', boat';
         }
